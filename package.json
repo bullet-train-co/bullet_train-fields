@@ -32,6 +32,8 @@
   "peerDependencies": {
     "@rails/actiontext": "^7.0.0",
     "@simonwep/pickr": "^1.8.1",
+    "daterangepicker": "^3.1.0",
+    "i18n-js": "^3.8.0",
     "select2": "^4.0.13",
     "stimulus": "^2.0.0",
     "tributejs": "^5.1.3",
