@@ -1,0 +1,2 @@
+import{Controller as t}from"stimulus";function o(t,r){return o=Object.setPrototypeOf||function(t,o){return t.__proto__=o,t},o(t,r)}var r=function(t){var r,e;function n(){return t.apply(this,arguments)||this}return e=t,(r=n).prototype=Object.create(e.prototype),r.prototype.constructor=r,o(r,e),n.prototype.clickShadowField=function(t){t.preventDefault(),this.shadowFieldTarget.click()},n}(t);r.targets=["shadowField"];export{r as ButtonToggleController};
+//# sourceMappingURL=fields.esm.js.map

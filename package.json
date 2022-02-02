@@ -2,7 +2,16 @@
   "name": "@bullet-train/fields",
   "version": "1.0.1",
   "description": "Bullet Train Fields",
+  "source": "app/javascript/index.js",
+  "module": "app/assets/javascripts/fields.esm.js",
+  "main": "app/assets/javascripts/fields.js",
+  "files": [
+    "app/assets/javascripts/*.js"
+  ],
   "scripts": {
+    "prebuild": "$npm_execpath run clean",
+    "build": "microbundle",
+    "clean": "rimraf app/assets/javascripts"
   },
   "keywords": [
     "bullet-train",
@@ -11,6 +20,15 @@
   "author": "Andrew Culver <andrew.culver@gmail.com>",
   "homepage": "https://bullettrain.co/",
   "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/runtime": "^7.13.17",
+    "babel-loader": "^8.2.2",
+    "microbundle": "^0.13.0",
+    "rimraf": "^3.0.2"
+  },
   "peerDependencies": {
     "@rails/actiontext": "^7.0.0",
     "select2": "^4.0.13",
