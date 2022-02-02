@@ -4,7 +4,7 @@ import ColorPickerController from './controllers/fields/color_picker_controller'
 import DateController from './controllers/fields/date_controller'
 import FileFieldController from './controllers/fields/file_field_controller'
 import PhoneController from './controllers/fields/phone_controller'
-// import SuperSelectController from './controllers/fields/super_select_controller'
+import SuperSelectController from './controllers/fields/super_select_controller'
 
 export {
   ButtonToggleController,
@@ -13,5 +13,5 @@ export {
   DateController,
   FileFieldController,
   PhoneController,
-  // SuperSelectController
+  SuperSelectController
 }
