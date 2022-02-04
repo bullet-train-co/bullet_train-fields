@@ -22,14 +22,15 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.16",
+    "@babel/plugin-proposal-export-default-from": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.13.15",
     "@babel/preset-env": "^7.13.15",
     "@babel/runtime": "^7.13.17",
     "babel-loader": "^8.2.2",
     "microbundle": "^0.13.0",
-    "rimraf": "^3.0.2"
-  },
-  "peerDependencies": {
+    "rimraf": "^3.0.2",
+    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
+    "@hotwires/stimulus": "^2.0.0",
     "@rails/actiontext": "^7.0.0",
     "@simonwep/pickr": "^1.8.1",
     "daterangepicker": "^3.1.0",
@@ -37,7 +38,6 @@
     "intl-tel-input": "^17.0.8",
     "jquery": "^3.5.1",
     "select2": "^4.0.13",
-    "stimulus": "^2.0.0",
     "tributejs": "^5.1.3",
     "trix": "^1.3.0"
   }
