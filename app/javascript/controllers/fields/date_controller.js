@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "stimulus"
 import I18n from "i18n-js/index.js.erb"
 require("daterangepicker/daterangepicker.css");
 

@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "stimulus"
 require("select2/dist/css/select2.min.css");
 import $ from 'jquery';
 import 'select2';

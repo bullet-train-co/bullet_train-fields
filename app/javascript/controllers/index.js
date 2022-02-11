@@ -1,4 +1,4 @@
-import { identifierForContextKey } from "@hotwired/stimulus-webpack-helpers"
+import { identifierForContextKey } from "@stimulus/webpack-helpers"
 
 import ButtonToggleController from './fields/button_toggle_controller'
 import CloudinaryImageController from './fields/cloudinary_image_controller'
@@ -25,7 +25,7 @@ export const controllerDefinitions = [
   }
 })
 
-export default {
+export {
   ButtonToggleController,
   CloudinaryImageController,
   ColorPickerController,
