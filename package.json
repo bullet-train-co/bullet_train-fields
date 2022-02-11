@@ -30,7 +30,7 @@
     "microbundle": "^0.13.0",
     "rimraf": "^3.0.2",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
-    "@hotwires/stimulus": "^2.0.0",
+    "@hotwired/stimulus": "^3.0.0",
     "@rails/actiontext": "^7.0.0",
     "@simonwep/pickr": "^1.8.1",
     "daterangepicker": "^3.1.0",
