@@ -16,7 +16,7 @@ export const controllerDefinitions = [
   [FileFieldController, 'fields/file_field_controller.js'],
   [PhoneController, 'fields/phone_controller.js'],
   [SuperSelectController, 'fields/super_select_controller.js']
-].map((d) => {
+].map(function(d) {
   const key = d[1]
   const controller = d[0]
   return {

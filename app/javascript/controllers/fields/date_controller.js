@@ -1,5 +1,4 @@
 import { Controller } from "stimulus"
-import I18n from "i18n-js/index.js.erb"
 require("daterangepicker/daterangepicker.css");
 
 // requires jQuery, moment, might want to consider a vanilla JS alternative
@@ -7,7 +6,7 @@ import 'daterangepicker';
 
 export default class extends Controller {
   static targets = [ "field", "clearButton", "currentTimeZoneWrapper", "timeZoneButtons", "timeZoneSelectWrapper", "timeZoneField" ]
-  static values = { includeTime: Boolean, defaultTimeZones: Array }
+  static values = { includeTime: Boolean, defaultTimeZones: Array, cancelButtonLabel: String, applyButtonLabel: String }
 
   connect() {
     this.initPluginInstance()
@@ -82,8 +81,8 @@ export default class extends Controller {
       timePickerIncrement: 5,
       autoUpdateInput: false,
       locale: {
-        cancelLabel: I18n.t('fields.date_field.cancel'),
-        applyLabel: I18n.t('fields.date_field.apply'),
+        cancelLabel: "Cancel",
+        applyLabel: "Apply",
         format: this.includeTimeValue ? 'MM/DD/YYYY h:mm A' : 'MM/DD/YYYY'
       }
     })

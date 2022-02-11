@@ -1,7 +1,13 @@
 import { Controller } from "stimulus"
 require("select2/dist/css/select2.min.css");
 import $ from 'jquery';
-import 'select2';
+import select2 from "select2";
+
+select2($);
+
+if (window.$ !== undefined && window.$.select2 === undefined) {
+  window.$.fn.select2 = $.select2
+}
 
 export default class extends Controller {
   static targets = [ "select" ]
