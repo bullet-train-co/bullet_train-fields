@@ -10,7 +10,9 @@
   ],
   "scripts": {
     "prebuild": "$npm_execpath run clean",
-    "build": "microbundle && cp-cli node_modules/intl-tel-input/build/js/utils.js app/assets/javascripts/intl-tel-input-utils.js",
+    "build": "microbundle",
+    "postbuild": "$npm_execpath run copy:intl-tel-input-utils",
+    "copy:intl-tel-input-utils": "cp-cli node_modules/intl-tel-input/build/js/utils.js app/assets/javascripts/intl-tel-input-utils.js",
     "clean": "rimraf app/assets/javascripts"
   },
   "keywords": [
