@@ -1,4 +1,5 @@
 import Tribute from 'tributejs'
+require("trix/dist/trix.css");
 
 require("trix")
 require("@rails/actiontext")
