@@ -6,7 +6,12 @@ import 'daterangepicker';
 
 export default class extends Controller {
   static targets = [ "field", "clearButton", "currentTimeZoneWrapper", "timeZoneButtons", "timeZoneSelectWrapper", "timeZoneField" ]
-  static values = { includeTime: Boolean, defaultTimeZones: Array, cancelButtonLabel: String, applyButtonLabel: String }
+  static values = {
+    includeTime: Boolean,
+    defaultTimeZones: Array,
+    cancelButtonLabel: String,
+    applyButtonLabel: String
+  }
 
   connect() {
     this.initPluginInstance()
@@ -81,8 +86,8 @@ export default class extends Controller {
       timePickerIncrement: 5,
       autoUpdateInput: false,
       locale: {
-        cancelLabel: "Cancel",
-        applyLabel: "Apply",
+        cancelLabel: (this.hasCancelButtonLabelValue)? this.cancelButtonLabelValue: "cancel",
+        applyLabel: (this.hasApplyButtonLabelValue)? this.applyButtonLabelValue: "apply",
         format: this.includeTimeValue ? 'MM/DD/YYYY h:mm A' : 'MM/DD/YYYY'
       }
     })
