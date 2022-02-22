@@ -32,7 +32,7 @@ function updateTrixToolbarVisability() {
 
 function initializeTribute() {
   document.querySelectorAll("trix-editor").forEach((el, index) => {
-    var editor = this.editor;
+    var editor = el.editor;
     
     var mentionConfig = {
       trigger: '@',
@@ -66,6 +66,6 @@ function initializeTribute() {
       collection: [topicConfig, mentionConfig],
     });
   
-    tribute.attach(this);
+    tribute.attach(el);
   })
 }
