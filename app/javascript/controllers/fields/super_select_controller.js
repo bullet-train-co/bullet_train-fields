@@ -25,6 +25,16 @@ export default class extends Controller {
     return (window.$ !== undefined && window.$.select2 !== undefined)
   }
 
+  initialize() {
+    if (this.isSelect2LoadedOnWindowJquery) {
+      select2(window.$)
+    }
+  }
+
+  get isSelect2LoadedOnWindowJquery() {
+    return (window.$ !== undefined && window.$.select2 === undefined)
+  }
+
   connect() {
     if (this.isSelect2LoadedOnWindowJquery) {
       this.initPluginInstance()
