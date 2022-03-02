@@ -22,7 +22,7 @@ export default class extends Controller {
   }
 
   get isSelect2LoadedOnWindowJquery() {
-    return (window.$ !== undefined && window.$.select2 === undefined)
+    return (window.$ !== undefined && window.$.select2 !== undefined)
   }
 
   connect() {
