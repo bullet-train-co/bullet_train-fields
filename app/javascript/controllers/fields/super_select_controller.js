@@ -13,26 +13,15 @@ export default class extends Controller {
   // will be reissued as native dom events name prepended with '$' e.g. '$change', '$select2:closing', etc
   static jQueryEventsToReissue = [ "change", "select2:closing", "select2:close", "select2:opening", "select2:open", "select2:selecting", "select2:select", "select2:unselecting", "select2:unselect", "select2:clearing", "select2:clear" ]
   
-
   initialize() {
     this.dispatchNativeEvent = this.dispatchNativeEvent.bind(this)
-    if (this.isSelect2LoadedOnWindowJquery) {
+    if (!this.isSelect2LoadedOnWindowJquery) {
       select2(window.$)
     }
   }
 
   get isSelect2LoadedOnWindowJquery() {
     return (window.$ !== undefined && window.$.select2 !== undefined)
-  }
-
-  initialize() {
-    if (this.isSelect2LoadedOnWindowJquery) {
-      select2(window.$)
-    }
-  }
-
-  get isSelect2LoadedOnWindowJquery() {
-    return (window.$ !== undefined && window.$.select2 === undefined)
   }
 
   connect() {
