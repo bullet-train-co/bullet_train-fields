@@ -1,9 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 import { Picker } from 'emoji-mart'
 
+
 export default class extends Controller {
 
-  static targets = [ "button", "input" ]
+  static targets = [ "input", "display" ]
 
   connect() {
     this.visible = false
@@ -16,21 +17,22 @@ export default class extends Controller {
         return response.json()
       },
       onEmojiSelect: (emoji) => {
-        this.buttonTarget.innerHTML = emoji
-        this.inputTarget.value = emoji
-      }
+        this.displayTarget.innerHTML = emoji.native
+        this.inputTarget.value = emoji.native
+        this.element.removeChild(this.picker)
+        this.visible = false
+      },
+
     })
   }
 
   toggle(event) {
     event.preventDefault()
     if (this.visible) {
-      this.element.appendChild(this.picker)
-    } else {
       this.element.removeChild(this.picker)
+    } else {
+      this.element.appendChild(this.picker)
     }
-
     this.visible = !this.visible
   }
-
 }
