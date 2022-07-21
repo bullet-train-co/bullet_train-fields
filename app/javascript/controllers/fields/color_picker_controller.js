@@ -21,7 +21,6 @@ export default class extends Controller {
 
     const targetEl = event.target;
     const color = targetEl.dataset.color;
-
     $(this.colorInputTarget).val(color);
     $(this.colorPickerValueTarget).val(color);
     $(this.userSelectedColorTarget).data('color', color);
@@ -41,8 +40,6 @@ export default class extends Controller {
 
     this.pickr.setColor(`rgb ${r} ${g} ${b}`);
     const hexColor = this.pickr.getColor().toHEXA().toString();
-    this.pickr.setColor(hexColor);
-
     this.showUserSelectedColor(hexColor);
   }
 
@@ -67,6 +64,11 @@ export default class extends Controller {
     $(this.colorInputTarget).val('');
     $(this.userSelectedColorTarget).hide();
     $('.button-color').removeClass('ring-2 ring-offset-2');
+    this.dispatchChangeEvent()
+  }
+  
+  dispatchChangeEvent() {
+    this.colorInputTarget.dispatchEvent(new Event('change'))
   }
 
   togglePickr(event) {
@@ -97,6 +99,7 @@ export default class extends Controller {
       if (!this.colorOptions.includes(hexaColor)) {
         this.showUserSelectedColor(hexaColor);
       }
+      this.dispatchChangeEvent()
       this.pickr.hide();
     });
 
