@@ -3,6 +3,8 @@ import '@simonwep/pickr/dist/themes/monolith.min.css'
 
 import Pickr from '@simonwep/pickr';
 
+const pickerHexInputSelector = 'input.pcr-result'
+
 export default class extends Controller {
   static targets = [ "colorPickerValue", "colorField", "colorInput", "userSelectedColor", "colorOptions", "pickerContainer", "togglePickerButton", "colorButton" ];
   static values = { initialColor: String }
@@ -113,7 +115,7 @@ export default class extends Controller {
   }
   
   handleKeydown(event) {
-    if (!event.target.matches('input.pcr-result')) { return }
+    if (!event.target.matches(pickerHexInputSelector)) { return }
     if (event.key !== 'Enter') { return }
     
     event.preventDefault()
