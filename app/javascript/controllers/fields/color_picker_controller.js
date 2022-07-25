@@ -4,8 +4,9 @@ import '@simonwep/pickr/dist/themes/monolith.min.css'
 import Pickr from '@simonwep/pickr';
 
 export default class extends Controller {
-  static targets = [ "colorPickerValue", "colorField", "colorInput", "userSelectedColor", "colorOptions", "pickerContainer", "togglePickerButton" ];
+  static targets = [ "colorPickerValue", "colorField", "colorInput", "userSelectedColor", "colorOptions", "pickerContainer", "togglePickerButton", "colorButton" ];
   static values = { initialColor: String }
+  static classes = [ "colorSelected" ]
 
   connect() {
     this.initPluginInstance()
@@ -25,11 +26,9 @@ export default class extends Controller {
     $(this.colorInputTarget).val(color);
     $(this.colorPickerValueTarget).val(color);
     $(this.userSelectedColorTarget).data('color', color);
-    $('.button-color').removeClass('ring-2 ring-offset-2');
+    this.highlightColorButtonsMatchingSelectedColor()
 
     this.pickr.setColor(color);
-
-    targetEl.classList.add('ring-2', 'ring-offset-2');
   }
 
   pickRandomColor(event) {
@@ -50,7 +49,7 @@ export default class extends Controller {
     $(this.colorInputTarget).val(color);
     $(this.colorPickerValueTarget).val(color);
 
-    $('.button-color').removeClass('ring-2 ring-offset-2');
+    this.highlightColorButtonsMatchingSelectedColor()
 
     $(this.userSelectedColorTarget)
       .addClass('ring-2')
@@ -66,7 +65,18 @@ export default class extends Controller {
     $(this.colorPickerValueTarget).val('');
     $(this.colorInputTarget).val('');
     $(this.userSelectedColorTarget).hide();
-    $('.button-color').removeClass('ring-2 ring-offset-2');
+    this.highlightColorButtonsMatchingSelectedColor()
+  }
+  
+  highlightColorButtonsMatchingSelectedColor() {
+    this.colorButtonTargets.forEach((button) => {
+      const buttonColor = button.dataset?.color
+      if (this.selectedColor !== undefined && buttonColor === this.selectedColor) {
+        button.classList.add(...this.colorSelectedClasses)
+      } else {
+        button.classList.remove(...this.colorSelectedClasses)
+      }
+    })
   }
 
   togglePickr(event) {
@@ -112,5 +122,9 @@ export default class extends Controller {
 
   teardownPluginInstance() {
     this.pickr.destroy()
+  }
+  
+  get selectedColor() {
+    return $(this.colorInputTarget).val()
   }
 }
