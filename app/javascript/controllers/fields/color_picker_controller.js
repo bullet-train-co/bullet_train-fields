@@ -4,7 +4,7 @@ import '@simonwep/pickr/dist/themes/monolith.min.css'
 import Pickr from '@simonwep/pickr';
 
 export default class extends Controller {
-  static targets = [ "colorPickerValue", "colorField", "colorInput", "userSelectedColor", "colorOptions" ];
+  static targets = [ "colorPickerValue", "colorField", "colorInput", "userSelectedColor", "colorOptions", "pickerContainer", "togglePickerButton" ];
   static values = { initialColor: String }
 
   connect() {
@@ -75,7 +75,8 @@ export default class extends Controller {
 
   initPluginInstance() {
     this.pickr = Pickr.create({
-      el: '.btn-pickr',
+      el: this.togglePickerButtonTarget,
+      container: this.pickerContainerTarget,
       theme: 'monolith',
       useAsButton: true,
       default: this.initialColorValue || '#1E90FF',
