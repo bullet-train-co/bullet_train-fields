@@ -110,14 +110,15 @@ export default class extends Controller {
       }
       this.pickr.hide();
     });
-
-    const that = this
-
-    $('input[type="text"].pcr-result').on('keydown', function (e) {
-      if (e.key === 'Enter') {
-        that.pickr.applyColor(false)
-      }
-    })
+  }
+  
+  handleKeydown(event) {
+    if (!event.target.matches('input.pcr-result')) { return }
+    if (event.key !== 'Enter') { return }
+    
+    event.preventDefault()
+    event.stopPropagation()
+    this.pickr.applyColor(false)
   }
 
   teardownPluginInstance() {
