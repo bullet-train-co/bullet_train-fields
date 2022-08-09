@@ -28,25 +28,27 @@ export default class extends Controller {
   
   updateSelectAllCheckbox() {
     let checkbox = this.selectAllCheckboxTarget
-    let label = this.selectAllLabelTarget
+    let useAlternateLabel = false
     
     if (this.allSelected) {
       if (checkbox) {
         checkbox.checked = true
         checkbox.indeterminate = false
       }
-      label?.dispatchEvent(new CustomEvent('toggle', { detail: { useAlternate: true }} ))
+      useAlternateLabel = true
     } else if (this.selectedIds.length > 0) {
       if (checkbox) {
         checkbox.indeterminate = true
       }
-      label?.dispatchEvent(new CustomEvent('toggle', { detail: { useAlternate: false }} ))
     } else {
       if (checkbox) {
         checkbox.checked = false
         checkbox.indeterminate = false
       }
-      label?.dispatchEvent(new CustomEvent('toggle', { detail: { useAlternate: false }} ))
+    }
+    
+    if (this.hasSelectAllLabelTarget) {
+      this.selectAllLabelTarget.dispatchEvent(new CustomEvent(`${this.identifier}:toggle-select-all-label`, { detail: { useAlternate: useAlternateLabel }} ))
     }
   }
   
