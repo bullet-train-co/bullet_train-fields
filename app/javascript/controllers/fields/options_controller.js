@@ -1,7 +1,18 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "checkbox", "selectAllCheckbox", "selectAllLabel" ]
+  static targets = [ "checkbox", "selectAllCheckbox", "selectAllLabel", "selectAllWrapper" ]
+  static classes = [ "selectAllUnavailable" ]
+  
+  connect() {
+    this.enableSelectAll()
+  }
+  
+  enableSelectAll() {
+    if (this.hasSelectAllWrapperTarget) {
+      this.selectAllWrapperTarget.classList.remove(this.selectAllUnavailableClass)
+    }
+  }
   
   selectAllOrNone(event) {
     event.preventDefault()
