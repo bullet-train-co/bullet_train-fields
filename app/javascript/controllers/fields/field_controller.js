@@ -38,19 +38,19 @@ export default class extends Controller {
   get value() {
     switch (this.field.type) {
       case "checkbox":
-        return field.checked
+        return this.field.checked
     }
     
-    return field.value
+    return this.field.value
   }
   
   set value(newValue) {
     switch (this.field.type) {
       case "checkbox":
-        field.checked = (newValue === "true" || newValue === true)
+        this.field.checked = (newValue === "true" || newValue === true)
         break
       default:
-        field.value = newValue
+        this.field.value = newValue
         break
     }
   }
