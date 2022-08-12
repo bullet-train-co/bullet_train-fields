@@ -23,6 +23,7 @@ export default class extends Controller {
       this.selectAll()
     }
     this.updateSelectAllCheckbox()
+    this.dispatch('toggled-select-all')
   }
   
   selectAll() {
