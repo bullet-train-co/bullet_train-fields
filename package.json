@@ -53,7 +53,7 @@
     "yalc": "^1.0.0-pre.53"
   },
   "dependencies": {
-    "@hotwired/stimulus": "^3.0.1",
+    "@hotwired/stimulus": "^3.2.0",
     "@simonwep/pickr": "^1.8.1",
     "daterangepicker": "^3.1.0",
     "emoji-mart": "^5.1.0",
