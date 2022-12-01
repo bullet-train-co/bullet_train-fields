@@ -12,6 +12,7 @@ export default class extends Controller {
   ];
 
   connect() {
+    console.log("Connecting on custom branch");
     // Add upload event listeners
     const initializeListener = document.addEventListener(
       "direct-upload:initialize",
@@ -65,10 +66,12 @@ export default class extends Controller {
   }
 
   uploadFile() {
+    console.log("Uploading on custom branch");
     this.fileFieldTarget.click();
   }
 
   removeFile() {
+    console.log("Removing on custom branch");
     if (this.hasDownloadFileButtonTarget) {
       this.downloadFileButtonTarget.classList.add("hidden");
     }
