@@ -99,7 +99,7 @@ export default class extends Controller {
   
   dispatchNativeEvent(event) {
     const nativeEventName = '$' + event.type // e.g. '$change.select2'
-    this.element.dispatchEvent(new CustomEvent(nativeEventName, { detail: { event: event }, bubbles: true, cancelable: false }))
+    this.pluginMainEl.dispatchEvent(new CustomEvent(nativeEventName, { detail: { event: event }, bubbles: true, cancelable: false }))
   }
 
   // https://stackoverflow.com/questions/29290389/select2-add-image-icon-to-option-dynamically
