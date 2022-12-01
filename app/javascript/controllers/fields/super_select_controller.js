@@ -8,6 +8,9 @@ export default class extends Controller {
     acceptsNew: Boolean,
     enableSearch: Boolean,
     searchUrl: String,
+    // searchUrlPattern: String,
+    // queryStringMappings: Object,
+    // searchUrlParams: Object
   }
   
   // will be reissued as native dom events name prepended with '$' e.g. '$change', '$select2:closing', etc
@@ -84,6 +87,16 @@ export default class extends Controller {
     // revert to original markup, remove any event listeners
     $(this.pluginMainEl).select2('destroy');
   }
+  
+  updateSearchUrlValue(event) {
+    const dependentOnField = event?.detail?.event?.target
+    if (!dependentOnField) { return }
+    
+    const fieldName = dependentOnField.name
+    const fieldValue = dependentOnField.value
+    
+    // this.updateUrlParamsFrom(fieldName, fieldValue)
+  }
 
   initReissuePluginEventsAsNativeEvents() {
     this.constructor.jQueryEventsToReissue.forEach((eventName) => {
@@ -99,7 +112,7 @@ export default class extends Controller {
   
   dispatchNativeEvent(event) {
     const nativeEventName = '$' + event.type // e.g. '$change.select2'
-    this.element.dispatchEvent(new CustomEvent(nativeEventName, { detail: { event: event }, bubbles: true, cancelable: false }))
+    this.pluginMainEl.dispatchEvent(new CustomEvent(nativeEventName, { detail: { event: event }, bubbles: true, cancelable: false }))
   }
 
   // https://stackoverflow.com/questions/29290389/select2-add-image-icon-to-option-dynamically
