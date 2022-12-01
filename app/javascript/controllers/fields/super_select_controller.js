@@ -8,6 +8,9 @@ export default class extends Controller {
     acceptsNew: Boolean,
     enableSearch: Boolean,
     searchUrl: String,
+    // searchUrlPattern: String,
+    // queryStringMappings: Object,
+    // searchUrlParams: Object
   }
   
   // will be reissued as native dom events name prepended with '$' e.g. '$change', '$select2:closing', etc
@@ -83,6 +86,16 @@ export default class extends Controller {
     
     // revert to original markup, remove any event listeners
     $(this.pluginMainEl).select2('destroy');
+  }
+  
+  updateSearchUrlValue(event) {
+    const dependentOnField = event?.detail?.event?.target
+    if (!dependentOnField) { return }
+    
+    const fieldName = dependentOnField.name
+    const fieldValue = dependentOnField.value
+    
+    // this.updateUrlParamsFrom(fieldName, fieldValue)
   }
 
   initReissuePluginEventsAsNativeEvents() {
