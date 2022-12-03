@@ -6,6 +6,7 @@ import ColorPickerController from './fields/color_picker_controller'
 import DateController from './fields/date_controller'
 import EmojiPickerController from './fields/emoji_picker_controller'
 import FileFieldController from './fields/file_field_controller'
+import FilesFieldController from './fields/files_field_controller'
 import PasswordController from './fields/password_controller'
 import PhoneController from './fields/phone_controller'
 import SuperSelectController from './fields/super_select_controller'
@@ -17,10 +18,11 @@ export const controllerDefinitions = [
   [DateController, 'fields/date_controller.js'],
   [EmojiPickerController, 'fields/emoji_picker_controller.js'],
   [FileFieldController, 'fields/file_field_controller.js'],
+  [FilesFieldController, 'fields/files_field_controller.js'],
   [PasswordController, 'fields/password_controller.js'],
   [PhoneController, 'fields/phone_controller.js'],
   [SuperSelectController, 'fields/super_select_controller.js'],
-].map(function(d) {
+].map(function (d) {
   const key = d[1]
   const controller = d[0]
   return {
@@ -36,6 +38,7 @@ export {
   DateController,
   EmojiPickerController,
   FileFieldController,
+  FilesFieldController,
   PasswordController,
   PhoneController,
   SuperSelectController,
