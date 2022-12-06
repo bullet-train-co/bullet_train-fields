@@ -10,13 +10,6 @@ export default class extends Controller {
 
   static values = { id: Number }
 
-  disconnect() {
-    // Teardown event listeners
-    for (const event in this.uploadListeners) {
-      document.removeEventListener(event, this.uploadListeners[event]);
-    }
-  }
-
   removeFile() {
     if (this.hasDownloadFileButtonTarget) {
       this.downloadFileButtonTarget.classList.add("hidden");
