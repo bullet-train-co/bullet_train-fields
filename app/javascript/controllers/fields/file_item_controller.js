@@ -5,6 +5,7 @@ export default class extends Controller {
     "removeFileFlag",
     "downloadFileButton",
     "removeFileButton",
+    "fileName"
   ];
 
   static values = { id: Number }
@@ -22,6 +23,7 @@ export default class extends Controller {
     }
 
     this.removeFileButtonTarget.classList.add("hidden");
+    this.fileNameTarget.classList.add("hidden");
     this.removeFileFlagTarget.value = this.idValue;
   }
 
